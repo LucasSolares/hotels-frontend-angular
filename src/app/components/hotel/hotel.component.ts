@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { Hotel } from '../../models/hotel.model';
+import { EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'app-hotel',
@@ -9,5 +10,12 @@ import { Hotel } from '../../models/hotel.model';
 export class HotelComponent {
 
     @Input() hotel: Hotel;
+    @Output() handleMakeAReservation: EventEmitter<any> = new EventEmitter();
+
+    makeAReservation() {
+
+        this.handleMakeAReservation.emit(this.hotel.id);
+
+    }
 
 }

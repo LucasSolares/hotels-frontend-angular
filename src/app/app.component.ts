@@ -13,10 +13,18 @@ export class AppComponent {
   // adultConfirm = false;
 
   hotels: Hotel[] = [
-    new Hotel('Solei', 'Un gran hotel', 1500, '1', ['psicina']),
-    new Hotel('Barcenas', 'Hotel con una gran psicina', 2000, '2', ['pequeño', 'antigua']),
-    new Hotel('Hilton', 'Un hotel muy bueno', 2500, '3', ['psicina', 'grande'])
+    new Hotel('Solei', 'Un gran hotel', 1500, '1', undefined, ['psicina']),
+    new Hotel('Barcenas', 'Hotel con una gran psicina', 2000, '2', undefined, ['pequeño', 'antigua']),
+    new Hotel('Hilton', 'Un hotel muy bueno', 2500, '3', undefined, ['psicina', 'grande']),
   ];
+
+  handleReservation(id) {
+
+    this.hotels.filter((hotel, index) => {
+      hotel.id === id && this.hotels.splice(index, 1);
+    });
+
+  }
 
   // nameHotel = ''
 

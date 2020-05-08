@@ -45,24 +45,10 @@
   </div>
 </div> -->
 
-<!-- <div *ngFor="let hotel of hotels">
-  <h3>{{ hotel.name }}</h3>
-  <p>{{ hotel.description }}</p>
-  <p>{{ hotel.price }} GTQ</p>
-  <p *ngIf="hotel.tags.length === 0">Sin Etiquetas</p>
-  <div *ngFor="let tag of hotel.tags">
-    <div [ngSwitch]="tag">
-      <p *ngSwitchCase="'psicina'">
-        Con una gran psicina :)
-      </p>
-      <p *ngSwitchCase="'grande'">
-        Un hotel muy amplio ;)
-      </p>
-      <p *ngSwitchDefault>
-        Etiqueta aun no implementada >> [{{ tag }}]
-      </p>
-    </div>
-  </div>
-</div> -->
-
-<app-hotel></app-hotel>
+<div>
+  <app-hotel
+    *ngFor="let hotel of hotels"
+    [hotel]="hotel"
+    (handleMakeAReservation)="handleReservation($event)"
+  ></app-hotel>
+</div>

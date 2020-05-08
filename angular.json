@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Hotels"
+    }
+  },
+  "defaultProject": "Hotels",
+  "cli": {
+    "analytics": "7a8e96d7-5276-4b22-9d6a-a0604f791639"
+  }
 }
