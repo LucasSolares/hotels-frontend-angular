@@ -44,11 +44,11 @@
     <p *ngSwitchDefault>Sin nada incluido</p>
   </div>
 </div> -->
-
-<div>
-  <app-hotel
-    *ngFor="let hotel of hotels"
-    [hotel]="hotel"
-    (handleMakeAReservation)="handleReservation($event)"
-  ></app-hotel>
-</div>
+<header>
+  <nav>
+    <a [routerLink]='[""]' [routerLinkActiveOptions]='{exact: true}' routerLinkActive="active" href="/">Home</a>
+    <a [routerLink]='["hotels"]' routerLinkActive="active" >Hotels</a>
+  </nav>
+</header>
+<router-outlet></router-outlet>
+<footer>Footer</footer>
