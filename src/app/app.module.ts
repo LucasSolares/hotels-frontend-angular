@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,7 +10,8 @@ import { ReservationComponent } from './components/reservation/reservation.compo
 import { HotelCardComponent } from './components/hotel-card/hotel-card.component';
 import { ErrorComponent } from './components/error/error.component';
 import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component'
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component'
 
 @NgModule({
   declarations: [
@@ -21,12 +22,14 @@ import { LoginComponent } from './components/login/login.component'
     ErrorComponent,
     HomeComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

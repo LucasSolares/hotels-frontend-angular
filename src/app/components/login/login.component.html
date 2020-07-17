@@ -1,7 +1,28 @@
-<input type="text" ([ngModel])="email" />
-<input type="text" ([ngModel])="password"/>
-<input type="text" ([ngModel])="name" />
-<input type="text" ([ngModel])="lastname"/>
+<!-- <input type="text" [(ngModel)]="email" placeholder="Email..." />
+<input type="text" [(ngModel)]="password" placeholder="Password..."/>
+<input type="text" [(ngModel)]="name" placeholder="Name..."/>
+<input type="text" [(ngModel)]="lastname" placeholder="Lastname..."/>
 
-<p>{{ email }}</p>
-<button (click)="register()"> Registrar </button>
+<button (click)="register()"> Registrar </button> -->
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+    <input type="text" formControlName="email" placeholder="Email..." />
+    <div *ngIf="emailField.errors && emailField.dirty">
+        <p *ngIf="emailField.hasError('required')">
+            Este campo no puede ir vacio
+        </p>
+        <p *ngIf="emailField.hasError('email')">
+            El email digitado no es valido
+        </p>
+    </div>
+    <input type="text" formControlName="password" placeholder="Passoword..." />
+    <div *ngIf="passwordField.errors && passwordField.dirty">
+        <p *ngIf="passwordField.hasError('required')">
+            Este campo no puede ir vacio
+        </p>
+    </div>
+    <input type="submit" value="Login" />
+    <p *ngIf="error">
+        {{ error }}
+    </p>
+</form>
+<p>No tienes cuenta? <a routerLink="/register" routerLinkActive="active" >Registrate</a></p>

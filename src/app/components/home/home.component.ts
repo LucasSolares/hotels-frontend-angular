@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,15 +10,16 @@ export class HomeComponent implements OnInit {
 
   haveClick: { name: string };
 
-  constructor() {}
+  constructor(
+    private router: Router
+  ) {
 
-  ngOnInit(): void {
-    this.haveClick = JSON.parse(localStorage.getItem('haveClick'));
   }
 
-  handleClick() {
-    localStorage.setItem('haveClick', JSON.stringify({ name: 'Hola' }));
-    this.haveClick = JSON.parse(localStorage.getItem('haveClick'));
+  ngOnInit() {
+    if (!localStorage.getItem('token')) {
+      this.router.navigate(['login']);
+    }
   }
 
 }

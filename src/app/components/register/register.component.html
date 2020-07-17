@@ -1,0 +1,35 @@
+<form [formGroup]="registerForm" (ngSubmit)="register()">
+    <input type="text" formControlName="email" placeholder="Email..."/>
+    <div *ngIf="emailField.errors && emailField.dirty">
+        <p *ngIf="emailField.hasError('required')">
+            Este campo no puede ir vacio
+        </p>
+        <p *ngIf="emailField.hasError('email')">
+            El email digitado no es valido
+        </p>
+    </div>
+    <input type="text" formControlName="password" placeholder="Password..."/>
+    <div *ngIf="passwordField.errors && passwordField.dirty">
+        <p *ngIf="passwordField.hasError('required')">
+            Este campo no puede ir vacio
+        </p>
+        <p *ngIf="passwordField.hasError('minlength')">
+            La contraseña debe tener minimo 8 caracteres
+        </p>
+    </div>
+    <input type="text" formControlName="name" placeholder="Name..."/>
+    <div *ngIf="nameField.errors && nameField.dirty">
+        <p *ngIf="nameField.hasError('required')">
+            Este campo no puede ir vacio
+        </p>
+    </div>
+    
+    <input type="text" formControlName="lastName" placeholder="Lastname..."/>
+    <div *ngIf="lastnameField.errors && lastnameField.dirty">
+        <p *ngIf="lastnameField.hasError('required')">
+            Este campo no puede ir vacio
+        </p>
+    </div>
+    <input *ngIf="!loading" type="submit" [disabled]="registerForm.invalid" value="Register" />
+    <p *ngIf="loading">Loading...</p>
+</form>

@@ -24,4 +24,8 @@ export class UsersService {
       return this.http.post('https://hotels-control.herokuapp.com/user/signin', { email, password });
     }
   }
+
+  login(email: string, password: string) {
+    return this.http.post('https://hotels-control.herokuapp.com/user/signin', { email, password });
+  }
 }

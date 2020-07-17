@@ -4,16 +4,23 @@ import { HotelComponent } from './components/hotel/hotel.component';
 import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LoginComponent,
-  },
-  {
-    path: 'home',
     component: HomeComponent,
   },
+
+  {
+    path: 'register',
+    component: RegisterComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+
   {
     path: 'hotels',
     component: HotelComponent,
@@ -26,6 +33,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
